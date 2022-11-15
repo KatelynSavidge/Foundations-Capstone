@@ -1,5 +1,7 @@
 const express = require("express")
 const cors = require("cors")
+require("dotenv").config()
+const path = require("path")
 
 const app = express()
 
@@ -12,5 +14,7 @@ app.get("/api/getRandomPokemons", getRandomPokemons)
 app.get("/api/resetPokemons", resetPokemons)
 app.post("/api/setName", setName)
 
-app.listen(4000, () => console.log(`up on 4000`))
+
+const { PORT } = process.env
+app.listen(PORT, () => console.log(`up on 4000`))
 
