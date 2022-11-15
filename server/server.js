@@ -8,7 +8,8 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const { getRandomPokemons, resetPokemons, setName } = require('./controller')
+const { getRandomPokemons, resetPokemons, setName } = require('./controller', './pageCtrl')
+
 
 app.get("/api/getRandomPokemons", getRandomPokemons)
 app.get("/api/resetPokemons", resetPokemons)
