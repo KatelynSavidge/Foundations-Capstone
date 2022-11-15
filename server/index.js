@@ -6,29 +6,11 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const { submitBtn } = require('./controller')
+const { getRandomPokemons, resetPokemons, setName } = require('./controller')
 
+app.get("/api/getRandomPokemons", getRandomPokemons)
+app.get("/api/resetPokemons", resetPokemons)
+app.post("/api/setName", setName)
 
-app.get("/", submitBtn)
+app.listen(4000, () => console.log(`up on 4000`))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))
