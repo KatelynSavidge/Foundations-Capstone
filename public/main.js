@@ -16,7 +16,7 @@ const getSubmit = () => {
         const body = {
             name: name,
         }
-        axios.post("http://localhost:4000/api/setName/", body)
+        axios.post("/api/setName/", body)
         .then((res) => {
             enterNameToPlay.hidden = true;
             nameInput.style.display = "none";
@@ -30,19 +30,19 @@ const getSubmit = () => {
 
 const getRandomPokemons = () => {
     const possiblePokemon = [
-        "pokemon icons/ico-a_old_001.gif",
-        "pokemon icons/ico-a_old_004.gif",
-        "pokemon icons/ico-a_old_007.gif",
-        "pokemon icons/ico-a_old_025.gif",
-        "pokemon icons/ico-a_old_039.gif",
-        "pokemon icons/ico-a_old_041.gif",
-        "pokemon icons/ico-a_old_054.gif",
-        "pokemon icons/ico-a_old_133.gif",
-        "pokemon icons/ico-a_old_143.gif",
-        "pokemon icons/ico-a_old_151.gif",
-        "pokemon icons/ico-a_old_155.gif",
+        "/public/pokemon icons/ico-a_old_001.gif",
+        "/public/pokemon icons/ico-a_old_004.gif",
+        "/public/pokemon icons/ico-a_old_007.gif",
+        "/public/pokemon icons/ico-a_old_025.gif",
+        "/public/pokemon icons/ico-a_old_039.gif",
+        "/public/pokemon icons/ico-a_old_041.gif",
+        "/public/pokemon icons/ico-a_old_054.gif",
+        "/public/pokemon icons/ico-a_old_133.gif",
+        "/public/pokemon icons/ico-a_old_143.gif",
+        "/public/pokemon icons/ico-a_old_151.gif",
+        "/public/pokemon icons/ico-a_old_155.gif",
     ];
-    axios.get("http://localhost:4000/api/getRandomPokemons/")
+    axios.get("/api/getRandomPokemons/")
     .then(res => {
         pokemon1.src = possiblePokemon[res.data.pokemon1];
         pokemon2.src = possiblePokemon[res.data.pokemon2];
@@ -55,11 +55,11 @@ const playGame = () => {
 }
 
 const resetGame = () => {
-    axios.get("http://localhost:4000/api/resetPokemons/")
+    axios.get("/api/resetPokemons/")
     .then(res => {
-        pokemon1.src = "pokemon icons/ico-a_old_000.gif"
-        pokemon2.src = "pokemon icons/ico-a_old_000.gif"
-        pokemon3.src = "pokemon icons/ico-a_old_000.gif"
+        pokemon1.src = "/public/pokemon icons/ico-a_old_000.gif"
+        pokemon2.src = "/public/pokemon icons/ico-a_old_000.gif"
+        pokemon3.src = "/public/pokemon icons/ico-a_old_000.gif"
     });
 }
 

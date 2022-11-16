@@ -8,8 +8,13 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const { getRandomPokemons, resetPokemons, setName } = require('./controller', './pageCtrl')
+app.use('/public', express.static(path.join(__dirname, '../public')))
 
+const { getRandomPokemons, resetPokemons, setName } = require('./controller')
+
+app.get("/", (req, res)=> {
+    res.sendFile(path.join(__dirname, "../public/index.html"))
+})
 
 app.get("/api/getRandomPokemons", getRandomPokemons)
 app.get("/api/resetPokemons", resetPokemons)
